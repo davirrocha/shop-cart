@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Product list with cart</title>
+</head>
+
+<body>
+
+  <main>
+    <section>
+      <!-- <div class="test">
+        <button class="btn-quantity minus">
+          <i class="fa-solid fa-minus"></i>
+        </button>
+        <p class="quantity">1</p>
+        <button class="btn-quantity plus">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div> -->
+      <h1>Desserts</h1>
+
+      <ul id="all-products">
+        <!-- <li>
+          <div class="div-img">
+            <img src="./assets/images/image-waffle-desktop.jpg" alt="">
+            <button class="add-to-cart"> <img src="./assets/images/icon-add-to-cart.svg" alt="" class="cart-add">Add to
+              Cart</button>
+          </div>
+          <div class="infos">
+            <p class="sub-title">Waffle</p>
+            <h4>Waffle with Berries</h4>
+            <p class="price">6.50</p>
+          </div>
+        </li> -->
+      </ul>
+    </section>
+    <aside>
+      <h2>Your Cart (2)</h2>
+      <ul id="cart-products">
+        <li class="cart-items">
+          <div class="name-item">
+            <p style=" color: #260f08;
+            font-size: 19px;
+            font-weight: 600;">Classic Tiramisu</p>
+          </div>
+          <div class="price-items">
+            <p style="color: #c73a0f; font-weight: 600; ">2X</p>
+            <p style="color: #ad8985; font-weight: 400;">R$ 5.50</p>
+            <p style="color: #87635a;  font-weight: 400;">R$ 10.00</p>
+          </div>
+        </li>
+        <hr>
+        <li class="cart-items">
+          <div class="name-item">
+            <p style=" color: #260f08;
+            font-size: 19px;
+            font-weight: 600;">Classic Tiramisu</p>
+          </div>
+          <div class="price-items">
+            <p style="color: #c73a0f; font-weight: 600; ">2X</p>
+            <p style="color: #ad8985;">R$ 5.50</p>
+            <p style="color: #87635a;">R$ 10.00</p>
+          </div>
+        </li>
+        <hr>
+
+
+
+      </ul>
+
+      <div class="total-price">
+        <p style="font-weight: 500; color: #260f08;">Order Total</p>
+        <p style="font-size: 30px; font-weight: 700; color: #260f08;">R$20.00</p>
+      </div>
+
+      <div id="info">
+        <img src="./assets/images/icon-carbon-neutral.svg" alt="">
+        <p style="font-size: 18px;">This is <span style="color: #260f08; font-weight: 600 ;">carbon-neutal</span>
+          delivery</p>
+      </div>
+      <div>
+        <button class="confirm-order">Conformer Order</button>
+      </div>
+      <!-- <img src="./assets/images/illustration-empty-cart.svg" alt="">
+      <p>Your added items will appear here</p> -->
+    </aside>
+  </main>
+
+</body>
+<script src="./document.js"></script>
+<script src="https://kit.fontawesome.com/054ee8968e.js" crossorigin="anonymous"></script>
+
+</html>
