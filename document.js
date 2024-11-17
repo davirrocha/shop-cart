@@ -70,22 +70,24 @@ fetch('./data.json').then(response => response.json()).then(menuOptions => {
 
 
   const carrinhoLista = document.querySelector('#cart-products');
-  const totalPrice = document.querySelector('.total')
-  let total = 0
+  const totalPrice = document.querySelector('.total');
+
+  let total = 0;
+
   function addInCart(event) {
     const btn = event.target;
     const name = btn.getAttribute("data-name");
-    const price = btn.getAttribute('data-price');
+    const price = parseFloat(btn.getAttribute('data-price'));
 
     const item = document.createElement('li');
-    item.innerHTML = `${name} ${formatPrice.format(price)}`;
-    carrinhoLista.appendChild(item)
+    item.textContent = `${name} ${formatPrice.format(price)}`;
+    carrinhoLista.appendChild(item);
 
-    total += price
-    totalPrice.textContent = formatPrice.format(total)
-  };
+    total += price;
+    totalPrice.textContent = formatPrice.format(total);
+  }
 
-  btnProducts.forEach(btn => {
+  btnProducts.forEach((btn) => {
     btn.addEventListener('click', addInCart)
   })
 
