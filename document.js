@@ -56,14 +56,14 @@ fetch('./data.json').then(response => response.json()).then(menuOptions => {
     });
 
     btnPlus.addEventListener('click', () => {
-      quantity++;
-      quantityText.textContent = quantity;
+      if(parseInt(quantityText.textContent) < 75)
+      quantityText.textContent = parseInt(quantityText.textContent) + 1;
     });
 
     btnMinus.addEventListener('click', () => {
-      if (quantity > 1) {
-        quantity--;
-        quantityText.textContent = quantity;
+      if (parseInt(quantityText.textContent) > 1) {
+
+        quantityText.textContent = parseInt(quantityText.textContent) - 1
       }
     });
   });
@@ -85,7 +85,7 @@ fetch('./data.json').then(response => response.json()).then(menuOptions => {
             <p class='name-product'>${name}</p>
           </div>
           <div class="price-items">
-            <p style="color: #c73a0f; font-weight: 600; ">${1}X</p>
+            <p class="cart-quantity"style="color: #c73a0f; font-weight: 600;" >${1}X</p>
             <p style="color: #ad8985; font-weight: 400;">${formatPrice.format(price)}</p>
             <p style="color: #87635a;  font-weight: 400;">R$ 10.00</p>
             <button class="delete-item"><i class="fa-solid fa-x"></i></button>
@@ -95,7 +95,7 @@ fetch('./data.json').then(response => response.json()).then(menuOptions => {
 
     //Adiciona o evento para remover o item
     item.querySelector('.delete-item').addEventListener('click', () => {
-      removeFromCart(item, price)
+      removeFromCart(item, price,)
     });
 
     // Função para remover item do carrinho
@@ -105,8 +105,12 @@ fetch('./data.json').then(response => response.json()).then(menuOptions => {
 
       if (itemQuantity > 1) {
         quantityText.textContent = itemQuantity - 1;
+
       } else {
         item.remove();
+
+
+
       }
 
       total -= price;
