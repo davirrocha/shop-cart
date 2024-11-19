@@ -80,12 +80,47 @@ fetch('./data.json').then(response => response.json()).then(menuOptions => {
     const price = parseFloat(btn.getAttribute('data-price'));
 
     const item = document.createElement('li');
-    item.textContent = `${name} ${formatPrice.format(price)}`;
+    item.innerHTML = `
+     <div class="name-item">
+            <p class='name-product'>${name}</p>
+          </div>
+          <div class="price-items">
+            <p style="color: #c73a0f; font-weight: 600; ">${1}X</p>
+            <p style="color: #ad8985; font-weight: 400;">${formatPrice.format(price)}</p>
+            <p style="color: #87635a;  font-weight: 400;">R$ 10.00</p>
+            <button class="delete-item"><i class="fa-solid fa-x"></i></button>
+          </div> 
+    `
     carrinhoLista.appendChild(item);
 
+    //Adiciona o evento para remover o item
+    item.querySelector('.delete-item').addEventListener('click', () => {
+      removeFromCart(item, price)
+    });
+
+    // Função para remover item do carrinho
+    function removeFromCart(item, price) {
+      let quantityText = document.querySelector('.quantity');
+      let itemQuantity = parseInt(quantityText.textContent);
+
+      if (itemQuantity > 1) {
+        quantityText.textContent = itemQuantity - 1;
+      } else {
+        item.remove();
+      }
+
+      total -= price;
+      totalPrice.textContent = formatPrice.format(total);
+      totalItemsInCart = Math.max(0, totalItemsInCart - 1);
+      quantityCart.textContent = totalItemsInCart
+    }
+
+    // Atualiza o total do carrinho e a quantidade de itens
     total += price;
     totalPrice.textContent = formatPrice.format(total);
-  }
+  };
+
+
 
   btnProducts.forEach((btn) => {
     btn.addEventListener('click', addInCart)
