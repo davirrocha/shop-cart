@@ -50,6 +50,8 @@ fetch('./data.json')
       quantityCart.textContent = totalItemsInCart;
     }
 
+
+    let numberCart = 1
     // Função para adicionar ao carrinho
     function addInCart(event) {
       const btn = event.target;
@@ -66,9 +68,9 @@ fetch('./data.json')
           <p class='name-product'>${name}</p>
         </div>
         <div class="price-items">
-          <p class="cart-quantity"style="color: #c73a0f; font-weight: 600;" >${1}X</p>
+          <p class="cart-quantity" style="color: #c73a0f; font-weight: 600;" >${numberCart}X</p>
             <p style="color: #ad8985; font-weight: 400;">${formatPrice.format(price)}</p>
-            <p style="color: #87635a;  font-weight: 400;">R$ 10.00</p>
+            <p style="color: #87635a;  font-weight: 400;">${formatPrice.format(price)}</p>
             <button class="delete-item"><i class="fa-solid fa-x"></i></button>
 
         </div>
@@ -114,14 +116,17 @@ fetch('./data.json')
     function handleQuantityButtons() {
       document.querySelectorAll('.add-to-cart').forEach(btn => {
         const listItem = btn.closest('li');
-        const quantityProducts = listItem.querySelector('.quantity-products');
+
         const quantityText = listItem.querySelector('.quantity');
         const btnPlus = listItem.querySelector('.plus');
         const btnMinus = listItem.querySelector('.minus');
+        const cartQuantity = listItem.querySelectorAll('.cart-quantity');
 
         btnPlus.addEventListener('click', () => {
+
           if (parseInt(quantityText.textContent) < 75) {
             quantityText.textContent = parseInt(quantityText.textContent) + 1;
+            cartQuantity.textContent = numberCart += 1
           }
         });
 
@@ -132,6 +137,10 @@ fetch('./data.json')
         });
       });
     }
+
+
+
+
 
     // Inicializa os eventos
     document.querySelectorAll('.add-to-cart').forEach(btn => {
